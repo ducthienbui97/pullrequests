@@ -1,5 +1,7 @@
-import { FormGroup, FormControl, Col } from "react-bootstrap";
+import { FormGroup, FormControl, Col, InputGroup } from "react-bootstrap";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Octicon from "react-octicon";
 import icon from "./Octocat.png";
 class Home extends Component {
   state = {
@@ -16,13 +18,20 @@ class Home extends Component {
         <p>Display all pull requests you sent on GitHub!</p>
         <form action={"/" + this.state.user} method="GET">
           <FormGroup>
-            <FormControl
-              className="Input"
-              type="text"
-              value={this.state.user}
-              onChange={this.handleChange}
-              placeholder="Enter Github username"
-            />
+            <InputGroup>
+              <FormControl
+                className="Input"
+                type="text"
+                value={this.state.user}
+                onChange={this.handleChange}
+                placeholder="Enter Github username"
+              />
+              <InputGroup.Addon>
+                <Link to={"/" + this.state.user}>
+                  <Octicon name="search" />
+                </Link>
+              </InputGroup.Addon>
+            </InputGroup>
           </FormGroup>
           <button type="submit" hidden />
         </form>
