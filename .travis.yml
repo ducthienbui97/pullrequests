@@ -1,0 +1,14 @@
+language: node_js
+sudo: false
+node_js:
+  - "node"
+install:
+  - yarn global add surge
+  - yarn
+script:
+  - yarn build
+after_success:
+  - yarn deploy
+branches:
+  only:
+    - master
