@@ -8,6 +8,8 @@ class User extends Component {
     loading: true
   };
   render() {
+    console.log(this.props);
+
     const { user } = this.props.match.params;
     const query = "type:pr author:" + user + " -user:" + user;
     const url = "https://api.github.com/search/issues";
