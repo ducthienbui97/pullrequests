@@ -13,7 +13,7 @@ class Home extends Component {
   render() {
     console.log(this.props);
     return (
-      <Col xs={12} sm={8} md={4} className="Col">
+      <Col xs={10} sm={8} md={4} className="Col">
         <img src={icon} alt="logo" width="200px" />
         <p>Display all pull requests you sent on GitHub!</p>
         <form action={"/" + this.state.user} method="GET">

@@ -38,7 +38,7 @@ class PullRequest extends Component {
           console.log(err);
         });
     return (
-      <Col className="Col" xs={12} md={5} style={style}>
+      <Col className="Col" xs={10} md={5} style={style}>
         <table style={tableStyle}>
           <tbody>
             <tr>
