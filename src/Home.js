@@ -1,7 +1,6 @@
 import { FormGroup, FormControl, Col } from "react-bootstrap";
 import React, { Component } from "react";
 import icon from "./Octocat.png";
-import "./Home.css";
 class Home extends Component {
   state = {
     user: ""

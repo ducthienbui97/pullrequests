@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Jumbotron } from "react-bootstrap";
-import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import User from "./User";
