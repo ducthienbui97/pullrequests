@@ -19,7 +19,6 @@ a {
 }
 
 .Cover {
-  height: 100vh;
   background-color: white;
 }
 
@@ -33,13 +32,4 @@ a {
 
 .merged {
   color: purple;
-}
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  text-align: center;
-  height: 60px;
-  background-color: #f5f5f5;
 }
