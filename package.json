@@ -15,6 +15,7 @@
   },
   "scripts": {
     "predeploy": "yarn build",
+    "deploy": "mv build/index.html build/200.html && surge build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
