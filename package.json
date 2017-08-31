@@ -14,8 +14,8 @@
     "react-scripts": "1.0.12"
   },
   "scripts": {
-    "predeploy": "yarn build",
-    "deploy": "mv build/index.html build/200.html && surge build",
+    "predeploy": "yarn build && mv build/index.html build/200.html",
+    "deploy": "surge build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -7,7 +7,7 @@ install:
 script:
   - yarn build
 before-deploy:
-  - mv build/index.html build/200.html
+  - yarn run predeploy
 deploy:
   provider: surge
   project: ./build/
