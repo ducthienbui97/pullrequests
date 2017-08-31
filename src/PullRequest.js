@@ -27,8 +27,8 @@ class PullRequest extends Component {
     if (!this.state.done)
       Axios.get(url)
         .then(response => {
-          const { state, merged, html_url } = response.data;
-          const { full_name, owner } = response.data.base.repo;
+          const { state, merged } = response.data;
+          const { full_name, owner, html_url } = response.data.base.repo;
           this.setState({ html_url, full_name, owner });
           if (merged)
             this.setState({ state: "merged", icon: "git-merge", done: true });
@@ -62,7 +62,7 @@ class PullRequest extends Component {
                 <a href={this.state.html_url} target="_blank">
                   {this.state.full_name}
                 </a>
-                <span>&nbsp;at&nbsp;</span>
+                <span>&nbsp;on&nbsp;</span>
                 {created_at.toLocaleDateString()}
               </td>
             </tr>
