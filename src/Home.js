@@ -11,7 +11,6 @@ class Home extends Component {
     this.setState({ user: e.target.value });
   };
   render() {
-    console.log(this.props);
     return (
       <Col xs={10} sm={8} md={4} className="Col">
         <img src={icon} alt="logo" width="200px" />

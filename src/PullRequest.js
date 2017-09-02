@@ -16,27 +16,25 @@ const tableStyle = {
 };
 class PullRequest extends Component {
   state = {
-    done: false,
-    icon: "git-pull-request",
-    state: "open"
+    icon: "git-pull-request"
   };
+  componentDidMount() {
+    const url = this.props.data.url.replace("/issues/", "/pulls/");
+    Axios.get(url)
+      .then(response => {
+        const { state, merged } = response.data;
+        const { full_name, owner, html_url } = response.data.base.repo;
+        this.setState({ html_url, full_name, owner, done: true });
+        if (merged) this.setState({ state: "merged", icon: "git-merge" });
+        else this.setState({ state });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   render() {
     const { html_url, title, number } = this.props.data;
-    const url = this.props.data.url.replace("/issues/", "/pulls/");
     const created_at = new Date(this.props.data.created_at);
-    if (!this.state.done)
-      Axios.get(url)
-        .then(response => {
-          const { state, merged } = response.data;
-          const { full_name, owner, html_url } = response.data.base.repo;
-          this.setState({ html_url, full_name, owner });
-          if (merged)
-            this.setState({ state: "merged", icon: "git-merge", done: true });
-          else this.setState({ state, done: true });
-        })
-        .catch(err => {
-          console.log(err);
-        });
     return (
       <Col className="Col" xs={10} md={5} style={style}>
         <table style={tableStyle}>
@@ -53,16 +51,16 @@ class PullRequest extends Component {
                     {title}
                   </a>
                 </strong>
-                <span>&nbsp;#{number} </span>
+                <span> #{number} </span>
               </td>
             </tr>
             <tr hidden={!this.state.done}>
               <td>
-                to&nbsp;
+                <span>to </span>
                 <a href={this.state.html_url} target="_blank">
                   {this.state.full_name}
                 </a>
-                <span>&nbsp;on&nbsp;</span>
+                <span> on </span>
                 {created_at.toLocaleDateString()}
               </td>
             </tr>
