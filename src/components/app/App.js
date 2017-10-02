@@ -3,7 +3,7 @@ import { Jumbotron } from "react-bootstrap";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 import Home from "../home/Home";
-import User from "../user/User";
+import User from "../User";
 import "./App.css";
 
 export default class App extends Component {

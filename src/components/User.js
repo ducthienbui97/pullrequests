@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Row } from "react-bootstrap";
 import Axios from "axios";
-import PullRequest from "../pullrequest/PullRequest";
-import Load from "../Load";
-import "./User.css";
+import PullRequest from "./pullrequest/PullRequest";
+import Load from "./Load";
 
 export default class User extends Component {
   state = {
@@ -29,7 +28,7 @@ export default class User extends Component {
     console.log(this.props);
     if (this.state.loading) { return (<Load />); };
     return (
-      <Row>
+      <Row style={{ marginRight: "0px", marginLeft: "0px" }}>
         {this.state.data.items.map((pullrequest, idx) => {
           return <PullRequest data={pullrequest} key={idx} />;
         })}

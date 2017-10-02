@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Octicon from "react-octicon";
 
 import icon from "../../assets/Octocat.png";
-import "./Home.css"
+import "./Home.css";
 
 export default class Home extends Component {
   state = {

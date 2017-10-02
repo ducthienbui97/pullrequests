@@ -24,12 +24,12 @@ export default class PullRequest extends Component {
         "full_name": fullName,
         "html_url": htmlUrl
       } = response.data.base.repo;
-      this.setState({ htmlUrl: htmlUrl , fullName: fullName, owner: owner, done: true });
+      this.setState({ htmlUrl, fullName, owner, done: true });
 
       if (merged) {
         this.setState({ state: "merged", icon: "git-merge" });
       } else {
-        this.setState({ state: state });
+        this.setState({ state });
       }
     } catch (err) {
       console.log(err);
