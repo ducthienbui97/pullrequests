@@ -10,7 +10,6 @@ export default {
         });
     },
     getPullRequestInfoByIssue: (issue) => {
-        const url = issue["pull_request"].url;
-        return Axios.get(url);
+        return Axios.get(issue["pull_request"].url);
     }
 };
