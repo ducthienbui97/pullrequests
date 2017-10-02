@@ -2,18 +2,7 @@ import React, { Component } from "react";
 import { Col } from "react-bootstrap";
 import Axios from "axios";
 import Octicon from "react-octicon";
-const style = {
-  border: "1px solid black",
-  margin: "auto",
-  marginTop: "1em",
-  borderRadius: "5px",
-  fontSize: "1.2em"
-};
 
-const tableStyle = {
-  textAlign: "left",
-  height: "5em"
-};
 class PullRequest extends Component {
   state = {
     icon: "git-pull-request"
@@ -43,8 +32,8 @@ class PullRequest extends Component {
     const { "html_url": htmlUrl, title, number } = this.props.data;
     const createdAt = new Date(this.props.data.created_at);
     return (
-      <Col className="Col" xs={10} md={5} style={style}>
-        <table style={tableStyle}>
+      <Col className="Col PullRequest" xs={10} md={5}>
+        <table>
           <tbody>
             <tr>
               <td>
