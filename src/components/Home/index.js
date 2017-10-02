@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Octicon from "react-octicon";
 
-import icon from "../../assets/Octocat.png";
-import "./Home.css";
+import icon from "./Octocat.png";
+import "./styles.css";
 
 export default class Home extends Component {
   state = {

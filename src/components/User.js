@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row } from "react-bootstrap";
 import Axios from "axios";
-import PullRequest from "./pullrequest/PullRequest";
+import PullRequest from "./PullRequest/index";
 import Load from "./Load";
 
 export default class User extends Component {

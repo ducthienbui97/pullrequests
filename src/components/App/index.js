@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Jumbotron } from "react-bootstrap";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
-import Home from "../home/Home";
+import Home from "../Home/index";
 import User from "../User";
-import "./App.css";
+import "./styles.css";
 
 export default class App extends Component {
   render() {

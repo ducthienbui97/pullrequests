@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap";
 import Axios from "axios";
 import Octicon from "react-octicon";
 
-import "./PullRequest.css";
+import "./styles.css";
 
 export default class PullRequest extends Component {
   state = {
