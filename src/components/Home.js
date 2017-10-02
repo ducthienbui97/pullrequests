@@ -2,7 +2,9 @@ import { FormGroup, FormControl, Col, InputGroup } from "react-bootstrap";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Octicon from "react-octicon";
-import icon from "./Octocat.png";
+
+import icon from "../assets/Octocat.png";
+
 class Home extends Component {
   state = {
     user: ""
