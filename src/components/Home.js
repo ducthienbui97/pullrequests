@@ -9,7 +9,7 @@ class Home extends Component {
   state = {
     user: ""
   };
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ user: e.target.value });
   };
   render() {

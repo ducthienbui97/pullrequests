@@ -18,23 +18,30 @@ class PullRequest extends Component {
   state = {
     icon: "git-pull-request"
   };
-  componentDidMount() {
+  async componentDidMount() {
     const url = this.props.data.url.replace("/issues/", "/pulls/");
-    Axios.get(url)
-      .then(response => {
-        const { state, merged } = response.data;
-        const { full_name, owner, html_url } = response.data.base.repo;
-        this.setState({ html_url, full_name, owner, done: true });
-        if (merged) this.setState({ state: "merged", icon: "git-merge" });
-        else this.setState({ state });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    try {
+      const response = await Axios.get(url);
+      const { state, merged } = response.data;
+      const {
+        owner,
+        "full_name": fullName,
+        "html_url": htmlUrl
+      } = response.data.base.repo;
+      this.setState({ htmlUrl, fullName, owner, done: true });
+
+      if (merged) {
+        this.setState({ state: "merged", icon: "git-merge" });
+      } else {
+        this.setState({ state });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
   render() {
-    const { html_url, title, number } = this.props.data;
-    const created_at = new Date(this.props.data.created_at);
+    const { "html_url": htmlUrl, title, number } = this.props.data;
+    const createdAt = new Date(this.props.data.created_at);
     return (
       <Col className="Col" xs={10} md={5} style={style}>
         <table style={tableStyle}>
@@ -47,7 +54,7 @@ class PullRequest extends Component {
                   className={this.state.state}
                 />&nbsp;
                 <strong>
-                  <a href={html_url} target="_blank">
+                  <a href={htmlUrl} target="_blank">
                     {title}
                   </a>
                 </strong>
@@ -57,11 +64,11 @@ class PullRequest extends Component {
             <tr hidden={!this.state.done}>
               <td>
                 <span>to </span>
-                <a href={this.state.html_url} target="_blank">
-                  {this.state.full_name}
+                <a href={this.state.htmlUrl} target="_blank">
+                  {this.state.fullName}
                 </a>
                 <span> on </span>
-                {created_at.toLocaleDateString()}
+                {createdAt.toLocaleDateString()}
               </td>
             </tr>
           </tbody>
