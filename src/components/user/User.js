@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Row } from "react-bootstrap";
 import Axios from "axios";
-import PullRequest from "./PullRequest";
-import Load from "./Load";
-class User extends Component {
+import PullRequest from "../pullrequest/PullRequest";
+import Load from "../Load";
+import "./User.css";
+
+export default class User extends Component {
   state = {
     loading: true
   };
   async componentDidMount() {
     const { user } = this.props.match.params;
-    const query = "type:pr author:" + user + " -user:" + user;
+    const query = `type:pr author:${user} -user:${user}`;
     const url = "https://api.github.com/search/issues";
 
     try {
@@ -35,4 +37,3 @@ class User extends Component {
     );
   }
 }
-export default User;

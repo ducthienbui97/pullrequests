@@ -13,36 +13,3 @@ a {
   margin: auto;
   text-align: center;
 }
-
-.PullRequest {
-  border: 1px solid black;
-  margin: auto;
-  margin-top: 1em;
-  border-radius: 5px;
-  font-size: 1.2em;
-}
-
-table {
-  text-align: left;
-  height: 5em;
-}
-
-.App {
-  text-align: center;
-}
-
-.Cover {
-  background-color: white;
-}
-
-.open {
-  color: green;
-}
-
-.closed {
-  color: red;
-}
-
-.merged {
-  color: purple;
-}

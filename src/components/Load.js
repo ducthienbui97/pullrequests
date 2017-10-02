@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Octicon from "react-octicon";
 import { Col } from "react-bootstrap";
 
-class Load extends Component {
+export default class Load extends Component {
   render() {
     return (
       <Col className="Col">
@@ -11,5 +11,3 @@ class Load extends Component {
     );
   }
 }
-
-export default Load;
