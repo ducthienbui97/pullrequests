@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Row } from "react-bootstrap";
 import Axios from "axios";
+
 import PullRequest from "./PullRequest";
 import Load from "./Load";
+
 class User extends Component {
   state = {
     loading: true
