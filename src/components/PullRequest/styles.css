@@ -1,0 +1,26 @@
+.PullRequest {
+  float: none;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 1em;
+  border-radius: 5px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+table {
+  text-align: left;
+  height: 5em;
+}
+
+.open {
+  color: green;
+}
+
+.closed {
+  color: red;
+}
+
+.merged {
+  color: purple;
+}

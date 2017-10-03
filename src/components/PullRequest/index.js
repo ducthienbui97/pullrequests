@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import { Col } from "react-bootstrap";
 import Octicon from "react-octicon";
-import githubService from "../services/GithubService";
-const style = {
-  border: "1px solid black",
-  margin: "auto",
-  marginTop: "1em",
-  borderRadius: "5px",
-  fontSize: "1.2em"
-};
+import githubService from "../../services/GithubService";
 
-const tableStyle = {
-  textAlign: "left",
-  height: "5em"
-};
-class PullRequest extends Component {
+import "./styles.css";
+
+export default class PullRequest extends Component {
   state = {
-    icon: "git-pull-request"
+    icon: "git-pull-request",
+    state: "",
+    htmlUrl: "",
+    fullName: "",
+    owner: "",
+    done: false
   };
   async componentDidMount() {
     const issue = this.props.data;
@@ -41,10 +37,9 @@ class PullRequest extends Component {
   }
   render() {
     const { "html_url": htmlUrl, title, number } = this.props.data;
-    const createdAt = new Date(this.props.data.created_at);
     return (
-      <Col className="Col" xs={10} md={5} style={style}>
-        <table style={tableStyle}>
+      <Col className="PullRequest" xs={10} md={5}>
+        <table>
           <tbody>
             <tr>
               <td>
@@ -68,7 +63,7 @@ class PullRequest extends Component {
                   {this.state.fullName}
                 </a>
                 <span> on </span>
-                {createdAt.toLocaleDateString()}
+                {new Date(this.props.data.created_at).toLocaleDateString()}
               </td>
             </tr>
           </tbody>
@@ -77,5 +72,3 @@ class PullRequest extends Component {
     );
   }
 }
-
-export default PullRequest;

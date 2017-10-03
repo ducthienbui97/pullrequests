@@ -13,23 +13,3 @@ a {
   margin: auto;
   text-align: center;
 }
-
-.App {
-  text-align: center;
-}
-
-.Cover {
-  background-color: white;
-}
-
-.open {
-  color: green;
-}
-
-.closed {
-  color: red;
-}
-
-.merged {
-  color: purple;
-}

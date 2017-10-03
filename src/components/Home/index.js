@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Octicon from "react-octicon";
 
-import icon from "../assets/Octocat.png";
+import icon from "./Octocat.png";
+import "./styles.css";
 
-class Home extends Component {
+export default class Home extends Component {
   state = {
     user: ""
   };
@@ -15,9 +16,9 @@ class Home extends Component {
   render() {
     return (
       <Col xs={10} sm={8} md={4} className="Col">
-        <img src={icon} alt="logo" width="200px" />
+        <img src={icon} alt="logo" />
         <p>Display all pull requests you sent on GitHub!</p>
-        <form action={"/" + this.state.user} method="GET">
+        <form action={`/${this.state.user}`} method="GET">
           <FormGroup>
             <InputGroup>
               <FormControl
@@ -40,5 +41,3 @@ class Home extends Component {
     );
   }
 }
-
-export default Home;
