@@ -4,7 +4,7 @@ import { Col } from "react-bootstrap";
 
 const Load = () => (
   <Col className="Col">
-    <Octicon mega name="sync" />;
+    <Octicon mega name="sync" />
   </Col>
 );
 
