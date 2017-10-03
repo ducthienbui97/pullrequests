@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import '../assets/user.css'
-import Axios from "axios";
 import PullRequest from "./PullRequest";
 import Load from "./Load";
+import githubService from "../services/GithubService";
 
 class User extends Component {
   state = {
@@ -11,13 +11,9 @@ class User extends Component {
   };
   async componentDidMount() {
     const { user } = this.props.match.params;
-    const query = "type:pr author:" + user + " -user:" + user;
-    const url = "https://api.github.com/search/issues";
 
     try {
-      const response = await Axios.get(url, {
-        params: { q: query }
-      });
+      const response = await githubService.getIssues(user);
       this.setState({ data: response.data, loading: false });
     } catch(err) {
       console.log(err);
