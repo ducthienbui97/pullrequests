@@ -1,17 +1,9 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
+import '../assets/user.css'
 import Axios from "axios";
 import PullRequest from "./PullRequest";
 import Load from "./Load";
-
-const style = {
-  border: "1px solid black",
-  marginTop: "1em",
-  borderRadius: "5px",
-  fontSize: "1.2em",
-  paddingTop: "0.5em",
-  paddingBottom: "0.5em"
-};
 
 class User extends Component {
   state = {
@@ -40,7 +32,7 @@ class User extends Component {
     const { user } = this.props.match.params;    
     return items.length === 0 
       ? (
-          <Col className="Col" xs={10} sm={8} md={4} style={style}>
+          <Col className="Col Empty-PR" xs={10} sm={8} md={4}>
             There are <strong>no pull requests</strong> associated with user <strong>{user}</strong>
           </Col>
         )
