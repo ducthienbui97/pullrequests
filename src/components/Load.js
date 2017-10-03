@@ -6,7 +6,7 @@ class Load extends Component {
   render() {
     return (
       <Col className="Col">
-        <Octicon mega name="sync" />;
+        <Octicon mega name="sync" />
       </Col>
     );
   }
