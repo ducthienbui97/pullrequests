@@ -36,7 +36,7 @@ class User extends Component {
   render() {
     console.log(this.props);
     if (this.state.loading) { return (<Load />); };
-    const { items } = this.state.data
+    const { items } = this.state.data;
     const { user } = this.props.match.params;    
     return items.length === 0 
       ? (
