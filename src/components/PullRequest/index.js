@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Col } from "react-bootstrap";
-import Axios from "axios";
 import Octicon from "react-octicon";
+import githubService from "../../services/GithubService";
 
 import "./styles.css";
 
@@ -15,9 +15,9 @@ export default class PullRequest extends Component {
     done: false
   };
   async componentDidMount() {
-    const url = this.props.data.url.replace("/issues/", "/pulls/");
+    const issue = this.props.data;
     try {
-      const response = await Axios.get(url);
+      const response = await githubService.getPullRequestInfoByIssue(issue);
       const { state, merged } = response.data;
       const {
         owner,
