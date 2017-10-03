@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
-import '../assets/user.css'
+import "../assets/user.css";
 import PullRequest from "./PullRequest";
 import Load from "./Load";
 import githubService from "../services/GithubService";
