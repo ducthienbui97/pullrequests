@@ -9,6 +9,24 @@ export default class User extends Component {
   state = {
     loading: true
   };
+
+  handleError(err) {
+    let errorMessage = "There is something wrong, open log for more information!";
+    if (err.response &&
+        err.response.data &&
+        err.response.data.errors &&
+        err.response.data.errors.length > 0
+    ) {
+      let errors = err.response.data.errors;
+      errorMessage = errors.length > 1
+        ? errors.map((e) => "- " + e.message).join("\r\n")
+        : errors[0].message;
+    }
+
+    console.log(err);
+    alert(errorMessage);
+  }
+
   async componentDidMount() {
     const { user } = this.props.match.params;
 
@@ -16,11 +34,11 @@ export default class User extends Component {
       const response = await githubService.getIssues(user);
       this.setState({ data: response.data, loading: false });
     } catch (err) {
-      console.log(err);
-      alert("There is something wrong, open log for more information!");
+      this.handleError(err);
       this.props.history.push("/");
     }
   }
+
   render() {
     console.log(this.props);
     if (this.state.loading) { return (<Load />); };
