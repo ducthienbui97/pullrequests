@@ -17,7 +17,7 @@ export default class User extends Component {
         err.response.data.errors &&
         err.response.data.errors.length > 0
     ) {
-      errorMessage = err.response.data.errors.map(e => ("- " + e.message)).join("\r\n");
+      errorMessage = err.response.data.errors.map((e) => "- " + e.message).join("\r\n");
     }
 
     console.log(err);
