@@ -11,3 +11,17 @@
   margin-right: 0;
   margin-left: 0;
 }
+
+.user-info {
+  float: none;
+  margin: auto;
+}
+.user-avatar {
+  width: 80px;
+  border-radius: 5px;
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+.user-name {
+  font-size: 1.6rem;
+}

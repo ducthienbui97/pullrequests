@@ -38,12 +38,20 @@ export default class User extends Component {
       this.props.history.push("/");
     }
   }
-
+  getUserData() {
+    let userData = {};
+    const { items } = this.state.data;
+    if(items.length > 0) {
+      userData = items[0].user;
+    }
+    return userData;
+  }
   render() {
     console.log(this.props);
     if (this.state.loading) { return (<Load />); };
     const { items } = this.state.data;
     const { user } = this.props.match.params;
+    const userData = this.getUserData();
     return items.length === 0
       ? (
         <Col className="Col Empty-PR" xs={10} sm={8} md={4}>
@@ -51,11 +59,21 @@ export default class User extends Component {
         </Col>
       )
       : (
-        <Row>
-          {this.state.data.items.map((pullrequest, idx) => {
-            return <PullRequest data={pullrequest} key={idx} />;
-          })}
-        </Row>
+        <div>
+          <Row>
+            <Col className="user-info" xs={10} md={5}>
+              <img className="user-avatar" src={userData.avatar_url} alt={`${user} avatar`} />
+              <span className="user-name">
+                PRs by <a href={`https://github.com/${user}`}>@{user}</a>
+              </span>
+            </Col>
+          </Row>
+          <Row>
+            {this.state.data.items.map((pullrequest, idx) => {
+              return <PullRequest data={pullrequest} key={idx} />;
+            })}
+          </Row>
+        </div>
       );
   }
 }
