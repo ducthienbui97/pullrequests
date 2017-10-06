@@ -39,19 +39,19 @@ export default class User extends Component {
     }
   }
   getUserData() {
-    let userData = {}
+    let userData = {};
     const { items } = this.state.data;
     if(items.length > 0) {
-      userData = items[0].user
-    }    
-    return userData
+      userData = items[0].user;
+    }
+    return userData;
   }
   render() {
     console.log(this.props);
     if (this.state.loading) { return (<Load />); };
     const { items } = this.state.data;
     const { user } = this.props.match.params;
-    const userData = this.getUserData()
+    const userData = this.getUserData();
     return items.length === 0
       ? (
         <Col className="Col Empty-PR" xs={10} sm={8} md={4}>
