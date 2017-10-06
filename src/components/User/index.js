@@ -24,7 +24,7 @@ export default class User extends Component {
     }
 
     console.log(err);
-    alert(errorMessage);
+    alert(errorMessage); // eslint-disable-line no-alert
   }
 
   async componentDidMount() {
@@ -48,7 +48,7 @@ export default class User extends Component {
   }
   render() {
     console.log(this.props);
-    if (this.state.loading) { return (<Load />); };
+    if (this.state.loading) { return (<Load />); }
     const { items } = this.state.data;
     const { user } = this.props.match.params;
     const userData = this.getUserData();

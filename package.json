@@ -14,11 +14,16 @@
     "react-scripts": "1.0.12"
   },
   "scripts": {
+    "lint": "yarn run eslint src",
     "predeploy": "yarn build && mv build/index.html build/200.html",
     "deploy": "surge build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.8.0"
   }
 }
