@@ -5,6 +5,7 @@ node_js:
 install:
   - yarn
 script:
+  - yarn run lint
   - yarn run predeploy
 deploy:
   provider: surge
